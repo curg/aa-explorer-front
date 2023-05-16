@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { parseText } from '@/library/parseText'
+import { parseText } from '@/src/utils/parseText'
 import CopyButton from '../button/CopyButton'
 
 type Props = {
