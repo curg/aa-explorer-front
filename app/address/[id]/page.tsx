@@ -1,5 +1,5 @@
 import React from 'react'
-import Head from '@/components/etc/Head'
+import Head from '@/src/components/etc/Head'
 
 const Page = () => {
   return (

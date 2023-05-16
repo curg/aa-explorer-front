@@ -5,6 +5,8 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { ApolloProvider } from "@apollo/client";
 import client from "@/src/core/apollo/client";
+import Header from "@/src/components/common/layout/Header";
+import Footer from "@/src/components/common/layout/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +25,11 @@ export default function RootLayout({
     <html lang="en">
       <ApolloProvider client={client}>
         <RecoilRoot>
-          <body className={inter.className}>{children}</body>
+          <body className={`${inter.className} w-4/5 min-h-screen mx-auto bg-black`}>
+            <Header />
+              {children}
+            <Footer />
+          </body>
         </RecoilRoot>
       </ApolloProvider>
     </html>

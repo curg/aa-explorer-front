@@ -9,8 +9,8 @@ const Page = () => {
     <>
       <Head title='AA | Blocks' />
       <main className='w-full h-screen bg-black'>
-        <SearchBar className='mx-auto mb-12 w-4/5' />
-        <div className='mx-auto min-h-fit	w-4/5 bg-primaryBg rounded-xl'>
+        <SearchBar className='mx-auto mb-12' />
+        <div className='mx-auto min-h-fit bg-primaryBg rounded-xl'>
           <div className='text-white py-12 px-12 flex justify-between'>
             <h2 className='font-semibold text-xl'>All Blocks</h2>
             <div className='flex text-sm items-center'>

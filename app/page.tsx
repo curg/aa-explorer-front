@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Head title='AA | Home' />
-      <main className='w-full h-screen bg-black flex justify-center items-center'>
+      <main className='h-screen flex justify-center items-center'>
         <SearchBar className='w-1/2' />
       </main>
    </>
