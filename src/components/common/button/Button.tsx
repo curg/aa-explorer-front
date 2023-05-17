@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import Image from 'next/image'
 
@@ -5,19 +6,19 @@ type ButtonProp = {
   className?: string;
   title: string;
   imagePath?: string;
-  imageWidth?: number;
-  imageHeight?: number;
+  size?: string;
 }
 
-const Button = ({ className, title, imagePath, imageWidth, imageHeight }: ButtonProp) => {
+const Button = ({ className, title, imagePath, size }: ButtonProp) => {
   return (
-    <button className={`${className} w-12 h-8 flex justify-center items-center bg-buttonBg rounded-md mr-2`}>
+    <button className={`${className} flex justify-center items-center bg-buttonBg rounded-md mr-2`}>
       {imagePath ?
         <Image 
           src={imagePath}
           alt={title}
-          width={imageWidth}
-          height={imageHeight}
+          width="0"
+          height="0"
+          className={`${size}`}
         />
        : <span>{title}</span>
       }
