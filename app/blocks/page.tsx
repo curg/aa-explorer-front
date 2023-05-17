@@ -12,11 +12,6 @@ const Page = () => {
   const { data, loading, error } = useQuery(GET_BLOCKS);
   const [blocks, setBlocks] = useState<Block[] | undefined>(undefined);
   useEffect(() => {
-    console.log({
-      data,
-      loading,
-      error
-    })
     setBlocks(data && data.blocks);
   }, [data])
   return (
@@ -38,7 +33,6 @@ const Page = () => {
           <div className='mx-12 text-sm pb-20'>
             <BlockTable
               blocks={blocks}
-              loading={loading}
             />                
           </div>
         </div>

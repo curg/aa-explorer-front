@@ -13,8 +13,8 @@ const Page = () => {
           <div className='text-white py-12 px-12 flex items-center'>
             <h2 className='font-semibold text-xl'>Block Number</h2>
             <h4 className='font-semibold ml-2'>#23162577</h4>
-              <Button className='ml-2' title="left" imagePath='/assets/leftArrow.svg' imageWidth={8} imageHeight={8} />
-              <Button title="right" imagePath='/assets/rightArrow.svg' imageWidth={8} imageHeight={8} />
+              <Button className='ml-2' title="left" imagePath='/assets/leftArrow.svg' size='w-8 h-4' />
+              <Button title="right" imagePath='/assets/rightArrow.svg' size='w-8 h-4' />
           </div>
         </div>
       </main>

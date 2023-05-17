@@ -1,11 +1,19 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Head from '@/src/components/etc/Head'
 import SearchBar from '@/src/components/common/searchBar/SearchBar'
 import Button from '@/src/components/common/button/Button'
 import TxsTable from '@/src/components/common/table/TxsTable'
+import { useQuery } from '@apollo/client'
+import { GET_TXS } from '@/src/core/apollo/query'
+import { Tx } from '@/src/types/Tx'
 
 const Page = () => {
+  const { data, loading, error } = useQuery(GET_TXS);
+  const [txs, setTxs] = useState<Tx[] | undefined>(undefined);
+  useEffect(() => {
+    setTxs(data && data.txs);
+  }, [data])
   return (
     <>
       <Head title='AA | Transactions' />
@@ -22,8 +30,10 @@ const Page = () => {
               <Button className='w-12 h-8' title="Last" />
             </div>
           </div>
-          <div className='mx-12 text-sm'>
-            <TxsTable />
+          <div className='mx-12 text-sm pb-20'>
+            <TxsTable
+              txs={txs}
+            />
           </div>
         </div>
       </main>
