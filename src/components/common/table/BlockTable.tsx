@@ -5,10 +5,9 @@ import { Block } from '@/src/types/Block';
 
 type Prop = {
   blocks: Block[] | undefined;
-  loading: boolean;
 }
 
-const BlockTable = ({ blocks, loading }: Prop) => {
+const BlockTable = ({ blocks }: Prop) => {
   return (
     <table className='w-full border-collapse border-spacing-0 rounded-t-2xl overflow-hidden'>
       <thead className='h-12 text-white bg-buttonBg'>

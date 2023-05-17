@@ -1,38 +1,45 @@
+"use client"
 import React from 'react'
 import Link from 'next/link'
 import { parseText } from '@/src/utils/parseText'
 import CopyButton from '../button/CopyButton'
+import { Tx } from '@/src/types/Tx'
 
 type Props = {
-  txHash: string;
-  addressFrom: string;
-  addressTo: string;
+  key: number;
+  tx: Tx;
 }
 
-const TxsRow = ({ txHash, addressFrom, addressTo }: Props) => {
+const TxsRow = ({ tx }: Props) => {
   return (
-    <tr>
+    <tr className='h-12'>
       <td>
-        <Link href={`/txs/${txHash}`}>
-          {parseText(txHash, 15)}
+        <Link href={`/txs/${tx.txnHash}`}>
+          {parseText(tx.txnHash, 15)}
         </Link>
-        <CopyButton text={txHash} />
-      </td>
-      <td>19549717</td>
-      <td>1 month ago</td>
-      <td>
-        <Link href={`/address/${addressFrom}`}>
-          {parseText(addressFrom, 15)}
-        </Link>
-        <CopyButton text={addressFrom} />            
+        <CopyButton text={tx.txnHash} />
       </td>
       <td>
-        <Link href={`/address/${addressTo}`}>
-          {parseText(addressTo, 15)}
+        <Link 
+          href={`/block/${tx.block}`}
+          className='text-[#7560EF] hover:text-[#9A8AF9] duration-100'>
+          {tx.block}
+        </Link>
+      </td>
+      <td>{tx.age}</td>
+      <td>
+        <Link href={`/address/${tx.from}`}>
+          {parseText(tx.from, 15)}
+        </Link>
+        <CopyButton text={tx.from} />            
+      </td>
+      <td>
+        <Link href={`/address/${tx.to}`}>
+          {parseText(tx.to, 15)}
         </Link>            
-        <CopyButton text={addressTo} />
+        <CopyButton text={tx.to} />
       </td>
-      <td>0 GEN</td>
+      <td>{tx.value}</td>
     </tr>
   )
 }

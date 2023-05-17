@@ -16,8 +16,7 @@ const BlockRow = ({ block }: Prop ) => {
       <td>
         <Link 
           href={`/block/${block.id}`}
-          className='text-[#7560EF] hover:text-[#9A8AF9] duration-100'
-        >
+          className='text-[#7560EF] hover:text-[#9A8AF9] duration-100'>
           {block.id}
         </Link>
       </td>
