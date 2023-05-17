@@ -1,5 +1,5 @@
 import { ApolloServer, gql } from "apollo-server";
-import { blocks } from "./database.js";
+import { blocks, txs } from "./database.js";
 
 const typeDefs = gql`
   type Block {
@@ -10,8 +10,18 @@ const typeDefs = gql`
     value: Float
   }
 
+  type Txs {
+    block: ID!
+    txnHash: String!
+    age: Int
+    from: String!
+    to: String!
+    value: Float
+  }
+
   type Query {
     blocks: [Block]
+    txs: [Txs]
   }
 `;
 
@@ -20,6 +30,9 @@ const resolvers = {
     blocks() {
       return blocks;
     },
+    txs() {
+      return txs;
+    }
   },
 };
 

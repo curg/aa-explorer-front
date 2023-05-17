@@ -11,3 +11,16 @@ export const GET_BLOCKS = gql`
     }
   }
 `;
+
+export const GET_TXS = gql`
+  query GetTxs {
+    txs {
+      block,
+      txnHash,
+      age,
+      from,
+      to,
+      value
+    }
+  }
+`
