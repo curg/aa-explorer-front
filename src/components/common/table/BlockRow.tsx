@@ -1,29 +1,33 @@
+"use client"
 import React from 'react'
 import Link from 'next/link'
 import { parseText } from '@/src/utils/parseText'
 import CopyButton from '../button/CopyButton'
+import { Block } from '@/src/types/Block'
 
-type Props = {
-  hash: string;
+type Prop = {
+  key: number;
+  block: Block
 }
 
-const BlockRow = ({ hash }: Props ) => {
+const BlockRow = ({ block }: Prop ) => {
   return (
-    <tr>
+    <tr className='h-12'>
       <td>
         <Link 
-          href={'/blocks/23162577'}
+          href={`/block/${block.id}`}
+          className='text-[#7560EF] hover:text-[#9A8AF9] duration-100'
         >
-          23162577
+          {block.id}
         </Link>
       </td>
-      <td>2 weeks ago</td>
-      <td>0</td>
+      <td>{block.age}</td>
+      <td>{block.txn}</td>
       <td>
-        {parseText(hash, 35)}              
-        <CopyButton text={hash} />
+        {parseText(block.hash, 35)}              
+        <CopyButton text={block.hash} />
       </td>
-      <td>0 GEN</td>
+      <td>{block.value} GEN</td>
     </tr>
   )
 }
